@@ -6,6 +6,21 @@ import Picker from './picker';
 
 const ViewPropTypes = RNViewPropTypes || View.propTypes;
 
+const monthNumNameDict = {
+  "1": "Jan",
+  "2": "Feb",
+  "3": "March",
+  "4": "April",
+  "5": "May",
+  "6": "June",
+  "7": "July",
+  "8": "Aug",
+  "9": "Sep",
+  "10": "Oct",
+  "11": "Nov",
+  "12": "Dec"
+};
+
 const styles = StyleSheet.create({
   picker: {
     flex: 1,
@@ -74,7 +89,7 @@ export default class DatePicker extends PureComponent {
     const maxYear = maximumDate.getFullYear();
 
     for (let i = 1; i <= 12; i += 1) {
-      this.state.monthRange.push({ value: i, label: `${i}${labelUnit.month}` });
+      this.state.monthRange.push({ value: i, label: monthNumNameDict[i] });
     }
 
     this.state.yearRange.push({ value: minYear, label: `${minYear}${labelUnit.year}` });
